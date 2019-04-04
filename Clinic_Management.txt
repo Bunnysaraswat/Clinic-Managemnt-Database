@@ -1,0 +1,210 @@
+Create table  Clinic_master
+(
+C_name varchar(10) ,
+Phone_no number(10)  not null,
+Registration_no varchar(10) not null,
+Street varchar(30) not null,
+Pincode number(6) 
+);
+ALTER TABLE Clinic_master
+ADD CONSTRAINT PK_Clinic_master PRIMARY KEY (Registration_no, Pincode);
+
+Create table  clinic_city(
+Pincode number(6),  
+City varchar(15),
+State varchar(15)
+);
+ALTER TABLE clinic_city
+ADD CONSTRAINT FK_clinic_city
+FOREIGN KEY (Pincode) REFERENCES Clinic_master(Registartion_no, Pincode);
+
+
+Create table Patient_master
+(
+P_id varchar(10),
+Street varchar(30),
+P_name varchar(20),
+P_dob date,
+P_bloodgroup  char(3),
+Pincode char(6)
+);
+
+Create table  Patient_mobile
+(
+P_id varchar(10),
+PhoneNo char(6)
+);
+
+Create table patient_address
+(
+Pincode char(6),
+P_city  varchar(15),
+P_state varchar(15)
+);
+
+Create table Patient_email
+(
+P_id varchar(10),
+P_email_id varchar(15) 
+);
+
+Create table staff_master
+(
+S_id varchar(10),
+First_name varchar(10),
+Last_name varchar(30),
+S_qualification varchar(12));
+
+Create table staff_address
+(
+S_id  varchar(10),
+phone_number   number(10),
+S_address varchar(10),
+Pincode  char(6)
+);
+
+Create table staff_city 
+(
+Pincode char(6),
+City varchar(15),
+State varchar(15)
+);
+
+Create table Qualification_master 
+(
+S_id  varchar(10),
+Qualification_desc  varchar(30)
+);
+
+Create table staff_work_hours
+(
+S_id  varchar(10),
+Start_time  date,
+End_time date
+);
+
+Create table doctor_master
+(
+D_id varchar(10),
+D_name varchar(30),
+D_designation varchar(10)
+);
+
+Create table doctor_time
+(
+D_id varchar(10),
+Start_time date,
+End_time date
+);
+
+Create  table oncalldoc_master
+(
+Od_id varchar(10) ,
+Od_name  varchar(30),
+Od_time date
+);
+
+Create table oncalldoc_designation
+(
+Od_id varchar(10),
+Od_designation varchar(15)
+); 
+
+Create table oncalldoc_address 
+(
+Od_id varchar(10),
+Od_address  varchar(30),
+Start_time date,
+End_time date
+);
+
+Create table nurse_master
+(
+n_id varchar(10),
+N_name  varchar(30),
+Start_time date,
+End_time date
+);
+
+Create table nurse_qualification
+(
+N_id  varchar(10),
+N_qualification  varchar(8)
+);
+
+Create table facilities_master
+(
+Ambulance_no number (10),
+Driver_id varchar(10),
+Visit_description  varchar(50));
+ 
+Create table driver_master
+(
+Driver_id varchar(10),
+Driver_name  varchar(30),
+Start_time date ,
+End_time date
+);
+
+Create table  patient_doc_record
+(
+P_id  varchar(10),
+D_id varchar(10),
+Od_id varchar(10),
+Checkup_time date
+);
+
+Create table patient_fee_master 
+(
+P_id varchar(10),
+Deposited_fee number(10),
+Due_fee number(10),
+Timestamp date 
+);
+
+Create table doctor_salary
+( 
+D_salary number(10),
+D_total_time date
+);
+
+Create table nurse_salary
+(
+N_salary number(10),
+N_total_time date );
+
+Create table receptionist_salary(
+Rep_salary number(10),
+Rep_total_time date
+);
+
+Create table patient_diagno_master 
+(
+Diagnosis_report varchar(30),
+Medical_treatment varchar(30),
+P_Date date
+);
+
+Create table admit_history_master 
+(
+P_id varchar(10),
+Ward_no varchar(3),
+A_Date date ); 
+
+Create table patient_discharge
+(
+P_id varchar(10),
+Discharge_date  date,
+Status varchar(20)
+);
+
+
+
+
+
+
+
+
+
+
+
